@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "data_profile.h": "c",
+        "cmath": "cpp"
+    }
+}
