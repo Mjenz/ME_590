@@ -98,10 +98,11 @@ void simpleFOC(void * params) {
       char ms[50];
       sprintf(ms,">target_angle:%f\n>actual:%f\n", target_angle, encoder.getAngle());
       
-      // Print string using critical section
-      critical_section_enter_blocking(&serial_lock);
-      Serial.println(ms);
-      critical_section_exit(&serial_lock);
+      // Print string using mutex
+      if (xSemaphoreTake(printMutex, 0)) {
+        Serial.print(ms);
+        xSemaphoreGive(printMutex);
+      }
 
       // Set target angle from sine array
       target_angle = sin_array[c];
@@ -141,10 +142,11 @@ void readIMU(void * params) {
     char ms[50];
     sprintf(ms,">ax:%f\n>ay:%f\n>az:%f\n", AccX, AccY, AccZ);
   
-    // Print string using critical section
-    critical_section_enter_blocking(&serial_lock);
-    Serial.print(ms);
-    critical_section_exit(&serial_lock);
+    // Print string using mutex
+    if (xSemaphoreTake(printMutex, 0)) {
+      Serial.print(ms);
+      xSemaphoreGive(printMutex);
+    }
   
     // Delay to keep loop running at known frequency
     delay(20);
