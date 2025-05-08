@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "data_profile.h": "c",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp",
+        "string": "cpp"
     }
 }

@@ -8,14 +8,16 @@
 // // current sensor
 // InlineCurrentSense current_sense  = InlineCurrentSense(0.01, 50.0, 26,27, _NC);
 
-// #define SIN_LENGTH 50
+// #define SIN_LENGTH 1000
 
 // // Sine array setup
 // float sin_array[SIN_LENGTH];
 // void generate_sin(float * array, int length) {
-//   for (int i = 0; i < length; i++) {
-//     float x = (2 * PI * i) / length;
-//     array[i] = 2 * sin(x); // Sine wave, amplitude 2 radians
+//   for (int i = 0; i < int(length/2); i++) {
+//     array[i] =.5;
+//   }
+//   for (int i = int(length/2); i < length; i++) {
+//     array[i] = -.5;
 //   }
 // }
 
@@ -43,13 +45,13 @@
 
 //         char ms[75];
 //         sprintf(ms,">target_torque:%f\n>DCcurrentmag:%f\n>DCcurrent:%f\n>D_FOC_Current:%f\n>Q_FOC_Current:%f\n",target_torque,current_mag,DC_current,d_foc_current,q_foc_current);//phase_current.a,phase_current.b);
-//         Serial.println(ms);
+//         // Serial.println(ms);
 //         motor.move(target_torque);  // Tell motor to move to that angle
 
 //         c++;
 //         if (c >= SIN_LENGTH) c = 0;
 
-//         _delay(20); // Delay to slow down sine wave playback
+//         // Delay to slow down sine wave playback
 //     }
 // }
 
@@ -75,15 +77,15 @@
 //     motor.linkCurrentSense(&current_sense);
   
 //     // set torque mode:
-//     motor.torque_controller = TorqueControlType::foc_current; 
+//     motor.torque_controller = TorqueControlType::foc_current;
 //     // set motion control loop to be used
 //     motor.controller = MotionControlType::torque;
   
 //     // foc current control parameters (Arduino UNO/Mega)
-//     motor.PID_current_q.P = 5;
-//     motor.PID_current_q.I= 300;
-//     motor.PID_current_d.P= 5;
-//     motor.PID_current_d.I = 300;
+//     motor.PID_current_q.P = 1;
+//     motor.PID_current_q.I= 20;
+//     motor.PID_current_d.P= 1;
+//     motor.PID_current_d.I = 20;
 //     motor.LPF_current_q.Tf = 0.01; 
 //     motor.LPF_current_d.Tf = 0.01; 
 
