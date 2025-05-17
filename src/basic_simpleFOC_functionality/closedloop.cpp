@@ -2,7 +2,7 @@
 
 // // motor instance
 // BLDCMotor motor = BLDCMotor(14,3);
-// BLDCDriver3PWM driver = BLDCDriver3PWM(12,27,14,13);
+// BLDCDriver3PWM driver = BLDCDriver3PWM(0,1,2,3);
 // MagneticSensorSPI encoder = MagneticSensorSPI(17, 14);
 // // channel A and B callbacks
 // // void doA(){encoder.handleA();}

@@ -1,0 +1,6 @@
+scope 1-6 at 6.28 rad/s going CCW
+scope 7 3.14 rad/s going CCW
+scope 8 3.14 rad/s going CW
+scope 9 6.28 rad/s going CW
+scope 10 1.57 rad/s going CW
+scope 11 1.57 rad/s going CCW
